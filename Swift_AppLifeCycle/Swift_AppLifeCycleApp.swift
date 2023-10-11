@@ -12,6 +12,7 @@ struct Swift_AppLifeCycleApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ApplicationLifeCycleManager.shared)
         }
     }
 }
