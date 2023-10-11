@@ -1,9 +1,10 @@
 import Foundation
 import UIKit.UIApplication
 
-enum ApplicationLifeCycleState: CaseIterable, Identifiable {
+/// Most important application lifecycle states enum.
+public enum ApplicationLifeCycleState: CaseIterable, Identifiable {
     
-    var id: String { return title }
+    public var id: String { return title }
     
     case didEnterBackground
     case willEnterForeground
@@ -12,7 +13,7 @@ enum ApplicationLifeCycleState: CaseIterable, Identifiable {
     case willResignActive
     case willTerminate
     
-    var notificationName: NSNotification.Name {
+    public var notificationName: NSNotification.Name {
         switch self {
         case .didEnterBackground: return UIApplication.didEnterBackgroundNotification
         case .willEnterForeground: return UIApplication.willEnterForegroundNotification
@@ -23,7 +24,8 @@ enum ApplicationLifeCycleState: CaseIterable, Identifiable {
         }
     }
     
-    var title: String {
+    // The title is not supposed to be user facing.
+    public var title: String {
         switch self {
         case .didEnterBackground: return "didEnterBackground"
         case .willEnterForeground: return "willEnterForeground"
@@ -34,7 +36,7 @@ enum ApplicationLifeCycleState: CaseIterable, Identifiable {
         }
     }
     
-    init?(notificationName: Notification.Name) {
+    public init?(notificationName: Notification.Name) {
 
         switch notificationName {
         case UIApplication.didEnterBackgroundNotification: self = .didEnterBackground

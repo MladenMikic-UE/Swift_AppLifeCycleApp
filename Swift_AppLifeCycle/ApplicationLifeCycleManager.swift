@@ -1,11 +1,12 @@
 import Foundation
 
-final class ApplicationLifeCycleManager: ObservableObject {
+/// Most important application lifecycle states enum.
+public final class ApplicationLifeCycleManager: ObservableObject {
     
     @Published private (set) var state: ApplicationLifeCycleState
     static let shared: ApplicationLifeCycleManager = .init()
     
-    init(state: ApplicationLifeCycleState = .didFinishLaunching) {
+    public init(state: ApplicationLifeCycleState = .didFinishLaunching) {
         self.state = state
         
         ApplicationLifeCycleState.allCases.forEach { state in

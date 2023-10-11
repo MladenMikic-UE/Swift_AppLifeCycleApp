@@ -28,7 +28,6 @@ struct ContentView: View {
                 } label: {
                     Text(applicationLifeCycleState.title)
                 }
-
             }
         }
         .padding()
